@@ -11,6 +11,8 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import utils.Config;
+
 public class SqLiteHelper {
 
     public static Connection con;
@@ -29,11 +31,8 @@ public class SqLiteHelper {
 
         try {
             Class.forName("org.sqlite.JDBC"); //dynamically loaded
-            //String DBpath = "jdbc:sqlite:C:\\Users\\Nada Essam\\Documents\\GitHub\\DataVis\\Parser.db"; // Load an SQLite DB
             
-           String DBpath="jdbc:sqlite:/media/ninja/Work/Graduation Project/graduation_project_git/VisDiscovery/Yellow_Taxi.db";
-           //String DBpath = "jdbc:sqlite:Parser.db"; // Load an SQLite DB
-            
+            String DBpath=Config.RostomPath;            
             con = DriverManager.getConnection(DBpath); // create a connection to the database
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
